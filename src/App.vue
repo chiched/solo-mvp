@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Learn the terminal</h1>
     <console/>
   </div>
 </template>
