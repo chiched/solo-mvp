@@ -1,18 +1,22 @@
 <template>
-  <div>
-      {{ directory }}
+  <div id="console-container">
+      <Output/>
+      <span class="path">{{ directory }}</span>
       <inputBox/>
   </div>
 </template>
 
 <script>
 import InputBox from './inputBox.vue'
+import Output from './output.vue'
+
 export default {
   name: 'Console',
   props: {
   },
   components: {
-  InputBox
+  InputBox,
+  Output
   },
   computed: {
     directory() {
@@ -27,5 +31,20 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+#console-container {
+    background-color: #242424;
+    height: 200px;
+    color: #ececec;
+    font-size: 15px;
+    padding: 20px 30px;
+    border-radius: 25px;
+    border: 2px #ffffff solid;
+    box-shadow: 0px 0px 5px 0px #000000;
+    text-align: left;
+}
+.path {
+    float: left;
+    margin-right: 20px;
+}
 </style>

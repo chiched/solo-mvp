@@ -10,16 +10,19 @@ export default new Vuex.Store({
     parentDirectory: "",
     currentPath: "/", 
     currentLevel: 0,
-    directoryTree: {
+    directoryTree: {files: []
     },
-    previousCommands: []
+    previousCommands: [],
+    output: []
   },
   mutations: {
     updateHistory(state, command) {
       state.previousCommands.push(command);
     },
+    updateOutput(state, output) {
+      state.output.push(output);
+    },
     createDirectory(state, name) {
-      alert ('create a directory');
       let path = state.currentPath.slice(1).split("/").filter(x => x !== '');
       let cur = state.directoryTree;
 
@@ -27,6 +30,16 @@ export default new Vuex.Store({
         cur = cur[dir];
       }
       cur[name] = {};
+      cur[name].files = [];
+    },
+    createFile(state, name) {
+      let path = state.currentPath.slice(1).split("/").filter(x => x !== '');
+      let cur = state.directoryTree;
+
+      for (let dir of path) {
+        cur = cur[dir];
+      }
+      cur.files.push(name);
     },
     goToDirectory(state, directory) {
       if (state.currentPath !== '/') {
@@ -36,8 +49,30 @@ export default new Vuex.Store({
       }
     },
     goUpOneLevel(state) {
-      state.currentPath = state.currentPath.split('/').slice(0,-2).join('/');
+      state.currentPath = state.currentPath.split('/').slice(0,-1).join('/');
+      if (state.currentPath === '') {
+        state.currentPath = '/';
+      }
       alert(state.currentPath);
+    },
+    displayList(state) {
+      let path = state.currentPath.slice(1).split("/").filter(x => x !== '');
+      let cur = state.directoryTree;
+      let list = [];
+      for (let dir of path) {
+        cur = cur[dir];
+      }
+      for (let item in cur) {
+        if(Array.isArray(cur[item])) {
+          list.push(cur[item].join('       '));
+        } else {
+          list.push(item);
+        }
+      }
+      state.output.push(list.join('         '));
+    },
+    clearOutput(state) {
+      state.output = [];
     }
   },
   actions: {

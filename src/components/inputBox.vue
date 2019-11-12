@@ -11,23 +11,22 @@ export default {
   },
   computed: {
   },
-
   methods: {
     submit: function(value) {
       this.$store.commit("updateHistory", value);
+      this.$store.commit("updateOutput", value);
        let command = value.split(' ');
        
        switch (command[0]) {
-         case 'cd':
-            alert('go to directory'); 
+        case 'cd':
             if (command[1] === '..') {
               this.$store.commit("goUpOneLevel");
             } else {
-            this.$store.commit("goToDirectory", command[1]);
+              this.$store.commit("goToDirectory", command[1]);
             }
             break;
         case 'ls':
-            alert('list all files in directory');
+            this.$store.commit("displayList");
             break;
         case 'open':
             alert('open file');
@@ -35,14 +34,18 @@ export default {
         case 'mkdir':
             this.$store.commit("createDirectory", command[1]);
             break;
+        case 'touch':
+            this.$store.commit("createFile", command[1]);
+            break;
         case 'clear':
-            alert('clear the console');
+            this.$store.commit("clearOutput");
             break;
         case 'rmdir':
             alert('remove directory');
             break;
         default:
-            alert('command unknown');
+            this.$store.commit("updateOutput", value + ": command not found");
+            
        }
     }
   }
@@ -50,18 +53,22 @@ export default {
 
 
 
-
-
-
-
-
-
-
-
-
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+input {
+  background-color: #242424 ; 
+  width: 100%; 
+  color: #ececec; 
+  padding: 0; 
+  border: none;
+  font-size: 15px;
+    width: 80%;
+    float: left;
+  }
+input:focus {
+  outline: none;
+}
 </style>
+
