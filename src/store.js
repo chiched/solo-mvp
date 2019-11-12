@@ -13,7 +13,12 @@ export default new Vuex.Store({
     directoryTree: {files: []
     },
     previousCommands: [],
-    output: []
+    output: [],
+    currentInstructions: "",
+    tutorial: [
+      ['You can create directory with the command "mkdir directory_name". Try creating a directory with the name tutorial.','mkdir tutorial'],
+      ['You can then navigate to that folder with the command "cd directory_name". Go into the folder "tutorial"', 'cd tutorial']
+    ]
   },
   mutations: {
     updateHistory(state, command) {
@@ -73,6 +78,9 @@ export default new Vuex.Store({
     },
     clearOutput(state) {
       state.output = [];
+    },
+    setUsername(state, name) {
+      state.username = name;
     }
   },
   actions: {

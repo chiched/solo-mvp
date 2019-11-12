@@ -2,14 +2,16 @@
   <div id="console-container">
     <h3>The terminal</h3>
       <Output/>
-      <span class="path">{{ directory }}</span>
+      <span class="path">{{ directory }} {{ username }}$</span>
       <inputBox/>
+      <tutorial />
   </div>
 </template>
 
 <script>
 import InputBox from './inputBox.vue'
 import Output from './output.vue'
+import Tutorial from './tutorial.vue'
 
 export default {
   name: 'Console',
@@ -17,16 +19,16 @@ export default {
   },
   components: {
   InputBox,
-  Output
+  Output,
+  Tutorial
   },
   computed: {
     directory() {
       return this.$store.state.currentPath;
+    },
+    username() {
+      return this.$store.state.username;
     }
-  },
-    updated() {
-    // Fired every second, should always be true
-    alert('updated');
   }
 }
 </script>
@@ -43,6 +45,7 @@ export default {
     border: 2px #ffffff solid;
     box-shadow: 0px 0px 5px 0px #000000;
     text-align: left;
+    position: relative;
 }
 .path {
     float: left;

@@ -13,6 +13,7 @@ export default {
   },
   methods: {
     submit: function(value) {
+      this.target = '';
       this.$store.commit("updateHistory", value);
       this.$store.commit("updateOutput", value);
        let command = value.split(' ');
@@ -47,6 +48,7 @@ export default {
             this.$store.commit("updateOutput", value + ": command not found");
             
        }
+       event.target.value = '';
     }
   }
 }
@@ -64,7 +66,7 @@ input {
   padding: 0; 
   border: none;
   font-size: 15px;
-    width: 80%;
+    width: 70%;
     float: left;
   }
 input:focus {
