@@ -16,10 +16,13 @@ export default {
   },
   computed: {
     directory() {
-      return this.$store.state.currentDirectory;
+      return this.$store.state.currentPath;
     }
   },
-  
+    updated() {
+    // Fired every second, should always be true
+    alert('updated');
+  }
 }
 </script>
 
