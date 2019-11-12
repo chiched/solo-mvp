@@ -1,5 +1,6 @@
 <template>
   <div id="console-container">
+    <h3>The terminal</h3>
       <Output/>
       <span class="path">{{ directory }}</span>
       <inputBox/>
@@ -34,7 +35,7 @@ export default {
 <style>
 #console-container {
     background-color: #242424;
-    height: 200px;
+    height: 350px;
     color: #ececec;
     font-size: 15px;
     padding: 20px 30px;
@@ -46,5 +47,9 @@ export default {
 .path {
     float: left;
     margin-right: 20px;
+}
+h3 {
+    margin: 5px 0px 0px 0px;
+    font-size: 22px;
 }
 </style>
