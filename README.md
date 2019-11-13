@@ -1,5 +1,3 @@
-This was created during my time as a student at Code Chrysalis
-
 ## Introduction
 
 This application was build because I was looking for a way of making it easier to remember and practice the difference commands in the terminal. Looking commands up and trying them out was cumbersome and I was looking for a way of having everything in the same place. So I created this app that will teach you the most used commands for terminal and git (though at this time not all commands are implemented).
