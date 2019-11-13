@@ -5,6 +5,7 @@
       <span class="path">{{ directory }} {{ username }}$</span>
       <inputBox/>
       <tutorial />
+      <comment />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import InputBox from './inputBox.vue'
 import Output from './output.vue'
 import Tutorial from './tutorial.vue'
+import Comment from './comment.vue'
 
 export default {
   name: 'Console',
@@ -20,7 +22,8 @@ export default {
   components: {
   InputBox,
   Output,
-  Tutorial
+  Tutorial, 
+  Comment
   },
   computed: {
     directory() {

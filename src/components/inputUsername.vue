@@ -14,6 +14,7 @@ export default {
   methods: {
     submit: function(value) {
       this.$store.commit("setUsername", value);
+      this.$store.commit("startInstructions");
        }
     }
   }

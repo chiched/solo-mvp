@@ -11,9 +11,11 @@ export default {
   },
   computed: {
     instructions() {
-      return this.$store.state.currentInstructions;
+      if (this.$store.state.currentInstructions !== undefined) {
+      return this.$store.state.tutorial[this.$store.state.currentInstructions][0];
+      } else return '';
     }
-  },
+  }
 }
 
 </script>

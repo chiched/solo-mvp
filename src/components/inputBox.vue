@@ -16,6 +16,7 @@ export default {
       this.target = '';
       this.$store.commit("updateHistory", value);
       this.$store.commit("updateOutput", value);
+      this.$store.commit("evaluateAnswer", value);
        let command = value.split(' ');
        
        switch (command[0]) {

@@ -2,16 +2,16 @@
   <div id="app">
     <h1>Learn the terminal</h1>
     <ul class="intro">
-      <li><span>cd</span>: this command is for navigating into a directory</li>
-      <li><span>cd..</span>: this command is for ...</li>
-      <li><span>ls</span>: this command is for ...</li>
-      <li><span>mkdir</span>: this command is for ...</li>
-      <li><span>touch</span>: this command is for ...</li>
-      <li><span>clear</span>: this command is for ...</li>
+      <li><span>cd [folder]</span>: Change directory</li>
+      <li><span>cd ..</span>: Move up to the parent directory</li>
+      <li><span>ls</span>: Display the name of files and subdirectories in the directory</li>
+      <li><span>mkdir &lt;dir&gt;</span>: Create new folder named &lt;dir&gt;</li>
+      <li><span>touch &lt;file&gt;</span>: Create a new file named &lt;file&gt;</li>
+      <li><span>clear</span>: Clear the screen</li>
     </ul>
 
 
-    <div class="username-container"><span>What's your name:</span> <inputUsername /></div>
+    <div class="username-container"><span>Let's start the tutorial! What's your name:</span> <inputUsername /></div>
     <console/>
   </div>
 </template>
@@ -64,7 +64,7 @@ body {
     font-weight: bold;
     color: #a70000;
     font-size: 18px;
-    width: 70px;
+    width: 130px;
     display: block;
     float: left;
 }
