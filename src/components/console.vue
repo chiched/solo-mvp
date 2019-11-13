@@ -49,6 +49,7 @@ export default {
     box-shadow: 0px 0px 5px 0px #000000;
     text-align: left;
     position: relative;
+    margin-bottom: 20px;
 }
 .path {
     float: left;

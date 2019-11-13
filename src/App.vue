@@ -13,18 +13,21 @@
 
     <div class="username-container"><span>Let's start the tutorial! What's your name:</span> <inputUsername /></div>
     <console/>
+    <resetButton />
   </div>
 </template>
 
 <script>
 import Console from './components/console.vue'
 import inputUsername from './components/inputUsername.vue'
+import resetButton from './components/resetButton.vue'
 
 export default {
   name: 'app',
   components: {
     Console,
-    inputUsername
+    inputUsername,
+    resetButton
   }
 }
 </script>
